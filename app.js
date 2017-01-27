@@ -1,34 +1,17 @@
 var express = require('express');
-var http    = require('https');
+var NewsApi = require('./lib/NewsApi');
 var app = express();
-
-const apiKey = 'a88281bd9cd04d5aacc542124b4dca63';
 
 app.use(express.static('app'));
 
 app.get('/news/:id/:sortBy', function(req, res){
+        news = new NewsApi(res);
+        news.renderNews(req.params);
+});
 
-        var options = {
-            host: 'newsapi.org',
-            path: '/v1/articles?source='+req.params.id+'&sortBy='+req.params.sortBy+'&apiKey=' + apiKey
-        };
-        var self = res;
-
-        callback = function (response) {
-            var str = '';
-            var str = '';
-            response.on('data', function (chunk) {
-                str += chunk;
-            });
-            response.on('end', function () {
-                var parsed = JSON.parse(str);
-                
-                self.setHeader('Content-Type', 'application/json');
-                self.send(str);
-            });
-        }
-        http.request(options, callback).end();
-
+app.get('/sources/:language/:country/:category', function(req, res){
+        news = new NewsApi(res);
+        news.renderSources(req.params);
 });
 
 app.listen(process.env.PORT || 5000, function(){
