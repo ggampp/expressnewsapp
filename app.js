@@ -31,6 +31,6 @@ app.get('/news/:id/:sortBy', function(req, res){
 
 });
 
-app.listen(3000, function(){
-    console.log("Ó o Gás!!!! na porta 3000.");
+app.listen(process.env.PORT || 5000, function(){
+    console.log("Ó o Gás!!!! na porta " + process.env.PORT || 5000 + ".");
 });
