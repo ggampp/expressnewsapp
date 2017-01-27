@@ -1,0 +1,82 @@
+<html>
+    <head lang="en">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+
+        <title>My news</title>
+
+        <script src="./js/jquery-3.1.1.js"></script>
+        <script src="./js/bootstrap.js"></script>
+        <script src="./js/handlebars-v4.0.5.js"></script>
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link rel="stylesheet" href="./css/inf-cards.css">
+        <link rel="stylesheet" href="./css/sidebar.css">
+        <script id="inf-card-template" type="x-handlebars-template">
+            {{#each articles}}
+        	<div class="[ col-sm-12 col-md-4 col-lg-4 ]">
+				<div class="[ info-card ]">
+					<img style="width: 100%" src="{{urlToImage}}" />
+					<div class="[ info-card-details ] animate">
+						<div class="[ info-card-header ]">
+							<h1> {{title}} </h1>
+							<h3> {{author}} </h3>
+						</div>
+						<div class="[ info-card-detail ]">
+							<!-- Description -->
+							<p>{{description}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+            {{/each}}
+        </script>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       My news
+                    </a>
+                </li>
+                <li>
+                    <a href="#">CNN</a>
+                </li>
+                <li>
+                    <a href="#">BBC</a>
+                </li>
+                <li>
+                    <a href="#">ESPN</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/maridlcrmn">Follow me</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row" id="cards">
+                </div>
+            </div>
+            <script src="./js/sidebar.js"></script>
+            <script src="./js/app.js"></script>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    </body>
+</html>

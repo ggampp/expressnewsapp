@@ -1,0 +1,14 @@
+{
+  "name": "expressnewsapp",
+  "version": "1.0.0",
+  "description": "App test express",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "GAMP",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
