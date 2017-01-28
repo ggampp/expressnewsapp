@@ -2,7 +2,7 @@ var express = require('express');
 var NewsApi = require('./lib/NewsApi');
 var app = express();
 
-app.use(express.static('app'));
+app.use(express.static('www'));
 
 app.get('/news/:id/:sortBy', function(req, res){
         news = new NewsApi(res);
