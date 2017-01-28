@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head lang="en">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +33,25 @@
 			</div>
             {{/each}}
         </script>
+                <script id="menu-template" type="x-handlebars-template">
+                    {{#each sources}}
+                        {{#if this.simple}}
+                            <li class="link" data-link="{{this.link}}">
+                                <a>{{this.name}}</a>
+                            </li>
+                        {{else}}
+                            <li class="dropdown link">
+                                <a class="dropdown-toggle" data-toggle="dropdown">{{this.name}}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li data-link="{{this.link}}" class="dropdown-header">Options</li>
+                                    {{#each sortBys}}
+                                        <li data-link="{{this.link}}"><a>{{this.name}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/if}}
+                    {{/each}}  
+                </script>
     </head>
     <body>
     <div id="wrapper">
@@ -39,23 +59,11 @@
     
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
+            <ul id="menu" class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
                        My news
                     </a>
-                </li>
-                <li>
-                    <a href="#">CNN</a>
-                </li>
-                <li>
-                    <a href="#">BBC</a>
-                </li>
-                <li>
-                    <a href="#">ESPN</a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/maridlcrmn">Follow me</a>
                 </li>
             </ul>
         </nav>
