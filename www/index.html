@@ -13,6 +13,7 @@
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
         <link rel="stylesheet" href="./css/bootstrap.css">
         <link rel="stylesheet" href="./css/inf-cards.css">
+        <link rel="stylesheet" href="./css/menu-cards.css">
         <link rel="stylesheet" href="./css/sidebar.css">
         <script id="inf-card-template" type="x-handlebars-template">
             {{#each articles}}
@@ -25,8 +26,26 @@
 							<h3> {{author}} </h3>
 						</div>
 						<div class="[ info-card-detail ]">
-							<!-- Description -->
 							<p>{{description}}</p>
+                            <div id="inbox">
+                                <div class="fab btn-group show-on-hover dropup">
+                                    <div data-toggle="tooltip" data-placement="left" title="Access" style="margin-left: 42px;">
+                                        <button type="button" class="btn btn-danger btn-io dropdown-toggle" data-toggle="dropdown">
+                                            <span class="fa-stack fa-2x">
+                                                <i class="fa fa-circle fa-stack-2x fab-backdrop"></i>
+                                                <i class="fa fa-plus fa-stack-1x fa-inverse fab-primary"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse fab-secondary"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li><a href="#" data-toggle="tooltip" data-placement="left" title="Coffee"><i class="fa fa-coffee"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" data-placement="left" title="LiveChat"><i class="fa fa-comments-o"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" data-placement="left" title="Reminders"><i class="fa fa-hand-o-up"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" data-placement="left" title="Invites"><i class="fa fa-ticket"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -40,7 +59,7 @@
                                 <a>{{this.name}}</a>
                             </li>
                         {{else}}
-                            <li class="dropdown link">
+                            <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">{{this.name}}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li data-link="{{this.link}}" class="dropdown-header">Options</li>

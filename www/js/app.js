@@ -1,5 +1,10 @@
 $(function () {
 
+  $('.fab').hover(function () {
+    $(this).toggleClass('active');
+  });
+  $('[data-toggle="tooltip"]').tooltip();
+
   loadNews("/espn/top", false);
 
   $.getJSON( "/sources/en/us/business", function( data ) {
@@ -8,7 +13,7 @@ $(function () {
       var theCompiledHtml = theTemplate(data);
       $('#menu').append(theCompiledHtml);
 
-      $('.link li').click(function (e) {
+      $('li.link').click(function (e) {
   		    e.preventDefault();
           var link = $(this).data('link');
           loadNews(link, true);
