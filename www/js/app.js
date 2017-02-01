@@ -9,6 +9,7 @@ $(function () {
 
   $.getJSON( "/sources/en/us/business", function( data ) {
       var theTemplateScript = $("#menu-template").html();
+      if (theTemplateScript){
       var theTemplate = Handlebars.compile(theTemplateScript);
       var theCompiledHtml = theTemplate(data);
       $('#menu').append(theCompiledHtml);
@@ -18,6 +19,8 @@ $(function () {
           var link = $(this).data('link');
           loadNews(link, true);
 	    });
+
+      }
   });
 });
 
